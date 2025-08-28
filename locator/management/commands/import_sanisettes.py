@@ -5,6 +5,7 @@ from locator.models import Sanisette
 API_URL = "https://data.ratp.fr/api/explore/v2.1/catalog/datasets/sanisettesparis2011/records"
 LIMIT = 100
 
+
 class Command(BaseCommand):
     help = "Importe les sanisettes de Paris depuis l’API RATP"
 
@@ -15,10 +16,7 @@ class Command(BaseCommand):
         total_imported = 0
 
         while True:
-            params = {
-                "limit": LIMIT,
-                "offset": offset
-            }
+            params = {"limit": LIMIT, "offset": offset}
 
             response = requests.get(API_URL, params=params)
             data = response.json()
@@ -56,7 +54,7 @@ class Command(BaseCommand):
                         "longitude": lon,
                         "gestionnaire": item.get("gestionnaire"),
                         "source": item.get("source"),
-                    }
+                    },
                 )
                 total_imported += 1
 
