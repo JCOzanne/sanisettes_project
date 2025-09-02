@@ -1,9 +1,10 @@
+from unittest.mock import MagicMock, patch
+
 import pytest
 import requests
-from unittest.mock import patch, MagicMock
 from django.core.management import call_command
-from locator.models import Sanisette
 
+from locator.models import Sanisette
 
 API_URL = "https://data.ratp.fr/api/explore/v2.1/catalog/datasets/sanisettesparis2011/records"
 
@@ -17,9 +18,7 @@ class TestImportSanisettes:
         mock_resp.raise_for_status = lambda: None
         mock_resp.text = "ok"
         mock_resp.json.side_effect = [
-            {"results": [
-                {"adresse": "Rue Test", "geo_point_2d": None, "arrondissement": "75001"}
-            ]},
+            {"results": [{"adresse": "Rue Test", "geo_point_2d": None, "arrondissement": "75001"}]},
             {"results": []},
         ]
         mock_get.return_value = mock_resp
@@ -34,9 +33,7 @@ class TestImportSanisettes:
         mock_resp.raise_for_status = lambda: None
         mock_resp.text = "ok"
         mock_resp.json.side_effect = [
-            {"results": [
-                {"adresse": None, "geo_point_2d": {"lat": 48.85, "lon": 2.35}, "arrondissement": "75001"}
-            ]},
+            {"results": [{"adresse": None, "geo_point_2d": {"lat": 48.85, "lon": 2.35}, "arrondissement": "75001"}]},
             {"results": []},
         ]
         mock_get.return_value = mock_resp
@@ -51,9 +48,11 @@ class TestImportSanisettes:
         mock_resp.raise_for_status = lambda: None
         mock_resp.text = "ok"
         mock_resp.json.side_effect = [
-            {"results": [
-                {"adresse": "Rue Test", "geo_point_2d": {"lat": 48.85, "lon": 2.35}, "arrondissement": "75001"}
-            ]},
+            {
+                "results": [
+                    {"adresse": "Rue Test", "geo_point_2d": {"lat": 48.85, "lon": 2.35}, "arrondissement": "75001"}
+                ]
+            },
             {"results": []},
         ]
         mock_get.return_value = mock_resp
@@ -61,9 +60,11 @@ class TestImportSanisettes:
         call_command("import_sanisettes")
 
         mock_resp.json.side_effect = [
-            {"results": [
-                {"adresse": "Rue Test", "geo_point_2d": {"lat": 48.85, "lon": 2.35}, "arrondissement": "75001"}
-            ]},
+            {
+                "results": [
+                    {"adresse": "Rue Test", "geo_point_2d": {"lat": 48.85, "lon": 2.35}, "arrondissement": "75001"}
+                ]
+            },
             {"results": []},
         ]
         call_command("import_sanisettes")

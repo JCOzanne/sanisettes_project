@@ -1,4 +1,5 @@
 import pytest
+
 from locator.views import haversine
 
 

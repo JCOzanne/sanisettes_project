@@ -7,29 +7,28 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Sanisette',
+            name="Sanisette",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('type', models.CharField(max_length=50)),
-                ('adresse', models.CharField(max_length=255)),
-                ('complement_adresse', models.CharField(blank=True, max_length=255, null=True)),
-                ('arrondissement', models.CharField(max_length=5)),
-                ('horaire', models.CharField(blank=True, max_length=100, null=True)),
-                ('acces_pmr', models.CharField(blank=True, max_length=10, null=True)),
-                ('relais_bebe', models.CharField(blank=True, max_length=10, null=True)),
-                ('url_fiche_equipement', models.URLField(blank=True, null=True)),
-                ('latitude', models.FloatField()),
-                ('longitude', models.FloatField()),
-                ('gestionnaire', models.CharField(blank=True, max_length=255, null=True)),
-                ('source', models.URLField(blank=True, null=True)),
+                ("id", models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                ("type", models.CharField(max_length=50)),
+                ("adresse", models.CharField(max_length=255)),
+                ("complement_adresse", models.CharField(blank=True, max_length=255, null=True)),
+                ("arrondissement", models.CharField(max_length=5)),
+                ("horaire", models.CharField(blank=True, max_length=100, null=True)),
+                ("acces_pmr", models.CharField(blank=True, max_length=10, null=True)),
+                ("relais_bebe", models.CharField(blank=True, max_length=10, null=True)),
+                ("url_fiche_equipement", models.URLField(blank=True, null=True)),
+                ("latitude", models.FloatField()),
+                ("longitude", models.FloatField()),
+                ("gestionnaire", models.CharField(blank=True, max_length=255, null=True)),
+                ("source", models.URLField(blank=True, null=True)),
             ],
             options={
-                'unique_together': {('adresse', 'latitude', 'longitude')},
+                "unique_together": {("adresse", "latitude", "longitude")},
             },
         ),
     ]

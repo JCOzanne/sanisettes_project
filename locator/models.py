@@ -1,7 +1,16 @@
+"""Database models for the locator application.
+
+This module defines the Sanisette model representing public toilets in Paris
+with their address, coordinates, accessibility, and other metadata.
+"""
+from __future__ import annotations
+
 from django.db import models
 
 
 class Sanisette(models.Model):
+    """Model representing a public toilet (sanisette) in Paris."""
+
     type = models.CharField(max_length=50)
     adresse = models.CharField(max_length=255)
     complement_adresse = models.CharField(max_length=255, blank=True, null=True)
@@ -18,5 +27,6 @@ class Sanisette(models.Model):
     class Meta:
         unique_together = ("adresse", "latitude", "longitude")
 
-    def __str__(self):
+    def __str__(self) -> str:
+        """Return a human-readable representation of the sanisette."""
         return f"{self.adresse} ({self.arrondissement})"
