@@ -3,6 +3,7 @@
 Fetches data in pages and upserts Sanisette records based on their address and
 coordinates. Safe-guards are in place to skip incomplete entries.
 """
+
 from __future__ import annotations
 
 from typing import Any, Dict

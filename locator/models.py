@@ -3,6 +3,7 @@
 This module defines the Sanisette model representing public toilets in Paris
 with their address, coordinates, accessibility, and other metadata.
 """
+
 from __future__ import annotations
 
 from django.db import models

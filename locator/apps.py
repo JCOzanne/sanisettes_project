@@ -1,4 +1,5 @@
 """Django application configuration for the locator app."""
+
 from __future__ import annotations
 
 from django.apps import AppConfig

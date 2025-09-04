@@ -2,6 +2,7 @@
 
 Provides an endpoint to retrieve the nearest sanisettes and a simple map page.
 """
+
 from __future__ import annotations
 
 from math import asin, cos, radians, sin, sqrt
