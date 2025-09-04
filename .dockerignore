@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Virtualenv
+.venv/
+env/
+ENV/
+
+# Tests / Coverage
+.coverage
+htmlcov/
+pytest_cache/
+
+# Git
+.git
+.gitignore
+
+# Docker
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# IDE
+.idea/
+*.swp

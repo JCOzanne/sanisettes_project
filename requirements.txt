@@ -5,6 +5,7 @@ charset-normalizer==3.4.3
 click==8.2.1
 coverage==7.10.5
 Django==5.2.5
+django-environ==0.12.0
 flake8==7.3.0
 Flake8-pyproject==1.2.3
 idna==3.10
@@ -16,6 +17,7 @@ packaging==25.0
 pathspec==0.12.1
 platformdirs==4.4.0
 pluggy==1.6.0
+psycopg2==2.9.10
 pycodestyle==2.14.0
 pyflakes==3.4.0
 Pygments==2.19.2
