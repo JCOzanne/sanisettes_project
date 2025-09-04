@@ -14,7 +14,7 @@ import os
 
 from pathlib import Path
 
-env=environ.Env(DEBUG=(bool, False))
+env = environ.Env(DEBUG=(bool, False))
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -90,7 +90,6 @@ DATABASES = {
         "PORT": env("POSTGRES_PORT"),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
