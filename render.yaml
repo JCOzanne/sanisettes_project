@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: sanisettes-web
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile.prod
+    dockerContext: .
+    envVars:
+      - key: DEBUG
+        value: "False"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: POSTGRES_USER
+        fromDatabase: sanisettes-db
+        property: user
+      - key: POSTGRES_PASSWORD
+        fromDatabase: sanisettes-db
+        property: password
+      - key: POSTGRES_DB
+        fromDatabase: sanisettes-db
+        property: database
+      - key: POSTGRES_HOST
+        fromDatabase: sanisettes-db
+        property: host
+      - key: POSTGRES_PORT
+        fromDatabase: sanisettes-db
+        property: port
+
+databases:
+  - name: sanisettes-db
+    plan: free
