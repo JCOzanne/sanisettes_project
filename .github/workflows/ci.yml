@@ -55,9 +55,13 @@ jobs:
           isort --check-only .
           flake8 .
 
+      - name: Run migrations
+        run: |
+          python manage.py migrate --noinput
+
       - name: Run tests
         run: |
-          pytest --disable-warnings --maxfail=1 --cov=.
+          pytest --ds=sanisettes_project.settings --disable-warnings --maxfail=1 --cov=.
 
   docker-build-push:
     runs-on: ubuntu-latest
