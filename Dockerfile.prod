@@ -27,10 +27,10 @@ COPY --from=builder /install /usr/local
 
 COPY . .
 
-COPY wait-for-db.sh /wait-for-db.sh
-RUN chmod +x /wait-for-db.sh
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 8000
 
-ENTRYPOINT ["/wait-for-db.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
 CMD ["gunicorn", "sanisettes_project.wsgi:application", "--bind", "0.0.0.0:8000"]
