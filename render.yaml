@@ -10,26 +10,26 @@ services:
         value: "False"
       - key: SECRET_KEY
         generateValue: true
-      - key: POSTGRES_USER
-        valueFromDatabase:
+      - fromDatabase:
           name: sanisettes-db
           property: user
-      - key: POSTGRES_PASSWORD
-        valueFromDatabase:
+        key: POSTGRES_USER
+      - fromDatabase:
           name: sanisettes-db
           property: password
-      - key: POSTGRES_DB
-        valueFromDatabase:
+        key: POSTGRES_PASSWORD
+      - fromDatabase:
           name: sanisettes-db
           property: database
-      - key: POSTGRES_HOST
-        valueFromDatabase:
+        key: POSTGRES_DB
+      - fromDatabase:
           name: sanisettes-db
           property: host
-      - key: POSTGRES_PORT
-        valueFromDatabase:
+        key: POSTGRES_HOST
+      - fromDatabase:
           name: sanisettes-db
           property: port
+        key: POSTGRES_PORT
 
 databases:
   - name: sanisettes-db
